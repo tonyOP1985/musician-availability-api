@@ -2,17 +2,19 @@ const mongoose = require('mongoose');
 
 
 
-var musician = mongoose.model('Musician', {
+var Musician = mongoose.model('Musician', {
 	musician: {
 		type: String,
-		required: true;
+		required: true,
 		minlength: 1,
 		trim: true
 	},
 	instruments: {
-		type: []
+		type: [],
+		required: true
 	},
 	dates: [{
+		_id: false,
 		weekOne: {
 			fri: {
 				type: Boolean,
@@ -55,3 +57,5 @@ var musician = mongoose.model('Musician', {
 		}
 	}]
 });
+
+module.exports = {Musician};
