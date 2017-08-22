@@ -13,7 +13,7 @@ var Musician = mongoose.model('Musician', {
 		type: [],
 		required: true
 	},
-	dates: [{
+	dates: {
 		_id: false,
 		weekOne: {
 			fri: {
@@ -55,7 +55,7 @@ var Musician = mongoose.model('Musician', {
 				default: true
 			}
 		}
-	}]
+	}
 });
 
 module.exports = {Musician};

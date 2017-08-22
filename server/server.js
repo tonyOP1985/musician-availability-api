@@ -20,7 +20,7 @@ app.post('/musicians', (req, res) => {
   var musician = new Musician({
     musician: req.body.musician,
     instruments: req.body.instruments,
-    dates: req.body.dates //need to fix dates.  dates do not get posted
+    dates: req.body.dates
   });
 
   musician.save().then((doc) => {
@@ -86,7 +86,15 @@ app.delete('/musicians/:id', (req, res) => {
 //update musician
 app.patch('/musicians/:id', (req, res) => {
   var id = req.params.id;
-  var body = _.pick(req.body, ['musician', 'instruments']);
+  var body = _.pick(req.body, [
+    'musician',
+    'instruments',
+    'dates',
+    'weekOne',
+    'weekTwo',
+    'weekThree',
+    'weekFour'
+    ]);
 
   //invalid id
   if (!ObjectID.isValid(id)) {
